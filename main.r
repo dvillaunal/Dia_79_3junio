@@ -1,27 +1,21 @@
-```{r, eval=FALSE, include=TRUE}
-"Protocolo:
- 1. Daniel Felipe Villa Rengifo
- 2. Lenguaje: R
- 3. Tema: Correlación de Datos, Ilustrados en Graficas
- 4. Fuentes:
-    https://rpubs.com/camilamila/correlaciones"
-```
+## ---- eval=FALSE, include=TRUE-------------------------------------------------------
+## "Protocolo:
+##  1. Daniel Felipe Villa Rengifo
+##  2. Lenguaje: R
+##  3. Tema: Correlación de Datos, Ilustrados en Graficas
+##  4. Fuentes:
+##     https://rpubs.com/camilamila/correlaciones"
 
-# Matriz de Correlación:
 
-Una matriz de correlación se utliza, para investigar la independencia entre multiples variables a la vez, el resultado de la tabla tiene el coeficiente de correlación, entre cada una de las vaiables que conforman el data frame.
-
-En particular representar la matriz de correlación nos ayudara a entender, la diferencias entre esas variables, esto para mineria de datos ayudará muchisimo ya que así veremos que varibles vamos a utlizar o eliminar. porque se trata de hechos reduntantes, utlizando (algo, que veremos o no => "reducción de datos, para hacer analisis")
-
-```{r}
+## ------------------------------------------------------------------------------------
 # Vamos a utlizar varias librerias para hacer las matrices:
 library(ggplot2)
 
 #install.packages("corrplot")
 library(corrplot)
-```
 
-```{r}
+
+## ------------------------------------------------------------------------------------
 # Vamos a exportar la base de datos para despues importarla:
 #mtcars <- datasets::mtcars
 
@@ -77,9 +71,9 @@ png(filename = "MatrizCorMos.png")
 corrplot(mtcars.cor, method = "shade", shade.col = NA, tl.col = "black", tl.srt = 45)
 
 dev.off()
-```
 
-```{r}
+
+## ------------------------------------------------------------------------------------
 
 # Como podemos ver este grafica tampoco nos sirve:
 # necesitamos una grafica que nos arrogen encima de cada cuadrado la correlación obtenida
@@ -145,8 +139,8 @@ dev.off()
 # Este me gusto más ya que maneja la elipse de un lado para saber si es psotiva o negativa y entre mas la correlación más delgada la "ellipse", viseversa para los negativos (más anchos)
 
 
-```
-```{r}
+
+## ------------------------------------------------------------------------------------
 # Prodiamos hacer lo mismo con ggplot pero seria más complicado:
 # Veamos solo el codigo que lleva:
 library(reshape2)
@@ -171,4 +165,3 @@ mtcorgg <- ggplot(data = mtcars.melted,
 
 mtcorgg
 dev.off()
-```
